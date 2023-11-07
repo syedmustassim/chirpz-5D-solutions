@@ -1,11 +1,10 @@
 import {useState, ChangeEvent, FormEvent} from "react"
 import { AppDispatch } from "../../store";
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {AiOutlineClose} from "react-icons/ai";
 
-import "./Modal.css"
-import { RootState } from "../../pages/Home/Home";
 import { addPosts } from "../../features/postSlice";
+import "./Modal.css"
 
 type ModalProps = {
     closeModal: (value: boolean) => void
@@ -14,7 +13,6 @@ type ModalProps = {
 const CreatePostModal = ({closeModal}: ModalProps) => {
 
     const dispatch = useDispatch<AppDispatch>();
-    const posts = useSelector((state: RootState) => state?.posts?.posts)
     const [newPost, setNewPost] = useState({
         caption: "",
         tags: [] as string[],
@@ -34,7 +32,7 @@ const CreatePostModal = ({closeModal}: ModalProps) => {
 
     const addTag = () => {
         if(currentTag){
-            setNewPost({...newPost, tags: [...newPost.tags, currentTag]})
+            setNewPost({...newPost, tags: [...newPost.tags, `#${currentTag}`]})
             setCurrentTag("")
         }
     }
@@ -50,7 +48,7 @@ const CreatePostModal = ({closeModal}: ModalProps) => {
         <div className="modal-background">
             <div className="modal-container">
                 <div className="modal-title">
-                    <h1>Create Chirpz</h1>
+                    <h1>Create <b style={{color: "#E88607"}}>Chirpz</b></h1>
                     <AiOutlineClose onClick={modalHandler} size={30} color="#e8e9ea"/>
                 </div>
                 <form className="modal-content" onSubmit={handleSubmit}>

@@ -42,8 +42,9 @@
 }
 
 @media (max-width: 768px) {
-    .home-main{
-        grid-template-columns: 0 100%;
+    .home-content{
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .create-btn{
         padding: 6px 12px;

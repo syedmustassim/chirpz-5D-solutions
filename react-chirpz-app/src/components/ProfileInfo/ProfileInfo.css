@@ -12,12 +12,15 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    @media (max-width: 768px) {
-        display: none;
-    }
 }
 
 .profile img{
     width: 39px;
     height: 39px;
+}
+
+@media (max-width: 768px) {
+    .profile-info{
+        display: none;
+    }
 }
