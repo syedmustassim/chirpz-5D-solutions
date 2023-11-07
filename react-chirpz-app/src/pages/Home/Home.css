@@ -1,7 +1,7 @@
 .home-header{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     position: sticky;
     top: 0;
 }
@@ -13,9 +13,8 @@
 .home-content{
     position: sticky;
     top: 0;
-    backdrop-filter: blur(100px);
-    opacity: 100%;
     border: 1px solid #28395A;
+    background-color: #091224;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +33,8 @@
     color: white;
     border-radius: 30px;
     font-size: 22px;
+    border: none;
+    outline: none;
 }
 
 .create-btn:hover{

@@ -19,7 +19,8 @@
 .tags-container{
     display: flex;
     gap: 1rem;
-    margin-left: 20px;
+    padding-left: 20px;
+    flex-wrap: wrap;
 }
 
 .post-tags{

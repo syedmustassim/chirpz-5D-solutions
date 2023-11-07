@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { AppDispatch } from "../../store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { getPosts } from "../../features/postSlice";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import PostCard from "../../components/PostCard/PostCard";
+import CreatePostModal from "../../components/Modal/CreatePostModal";
 
 import "./Home.css"
-import PostCard from "../../components/PostCard/PostCard";
 
 interface Post {
     apiId: string,
@@ -15,7 +16,7 @@ interface Post {
     [key: string]:any
 }
 
-interface RootState {
+export interface RootState {
     posts: {
         posts: Post[],
         status: string,
@@ -31,11 +32,19 @@ const Home = () => {
     const status = useSelector((state: RootState) => state.posts.status)
     const error = useSelector((state: RootState) => state.posts.error)
 
+    const [openModal, setOpenModal] = useState(false);
+
     useEffect(() => {
         if(status === "idle"){
             dispatch(getPosts())
         }
     },[status,dispatch])
+
+    const handleModal = () => {
+        setOpenModal(prev => !prev)
+    }
+
+    console.log(posts)
 
     return(
         <div>
@@ -44,11 +53,12 @@ const Home = () => {
             <div className="home-header-main">
                 <div className="home-content">
                     <h1>Home</h1>
-                    <button className="create-btn">Create</button>
+                    <button className="create-btn" onClick={handleModal}>Create</button>
                 </div>
                 <div>
-                {posts?.map((post) => <PostCard post={post}/>)}
-            </div>
+                {openModal && <CreatePostModal closeModal={setOpenModal}/>}
+                {posts?.map((post) => <PostCard post={post} key={post.id}/>)}
+                </div>
             </div>
             <ProfileInfo/>
             </div>

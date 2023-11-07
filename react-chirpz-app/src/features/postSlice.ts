@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit"
 import axios from "axios"
+import { Post } from "../components/PostCard/PostCard";
 
 interface PostsState {
     posts: any[],
@@ -14,7 +15,12 @@ const initialState: PostsState = {
 }
 
 export const getPosts = createAsyncThunk("posts/getPosts",async () => {
-    const response = await axios.get("http://localhost:4000/api/v1/posts");
+    const response = await axios.get("http://localhost:4000/api/v1/posts?_sort=createdAt&_order=desc");
+    return response.data.body;
+})
+
+export const addPosts = createAsyncThunk("posts/addPosts", async(newPost: Post) => {
+    const response = await axios.post("http://localhost:4000/api/v1/posts", newPost)
     return response.data.body;
 })
 
@@ -30,9 +36,20 @@ export const postSlice = createSlice({
         [getPosts.pending.type]: (state) => {
             state.status = "loading";
         },
-        [getPosts.pending.type]: (state,action: PayloadAction<PostsState[]>) => {
+        [getPosts.rejected.type]: (state,action) => {
             state.status = "error";
-            state.error = action.payload;
+            state.error = action.error.message;
+        },
+        [addPosts.fulfilled.type]: (state,action) => {
+            state.status = "success";
+            state.posts.unshift(action.payload)
+        },
+        [addPosts.pending.type]: (state) => {
+            state.status = "loading";
+        },
+        [addPosts.rejected.type]: (state,action) => {
+            state.status = "error";
+            state.error = action.error.message
         }
     }
 })
