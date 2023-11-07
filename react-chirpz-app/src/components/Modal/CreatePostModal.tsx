@@ -43,16 +43,15 @@ const CreatePostModal = ({closeModal}: ModalProps) => {
         closeModal(false);
     }
     
-    console.log(newPost)
     return(
         <div className="modal-background">
             <div className="modal-container">
                 <div className="modal-title">
                     <h1>Create <b style={{color: "#E88607"}}>Chirpz</b></h1>
-                    <AiOutlineClose onClick={modalHandler} size={30} color="#e8e9ea"/>
+                    <AiOutlineClose onClick={modalHandler} size={30} className="close-icon"/>
                 </div>
                 <form className="modal-content" onSubmit={handleSubmit}>
-                <div>
+                <div className="content">
                     <h2>Create</h2>
                     <input type="text" name="caption" placeholder="What's on your mind?" value={newPost?.caption} onChange={formHandler}/>
                     <h2>Add Tags</h2>

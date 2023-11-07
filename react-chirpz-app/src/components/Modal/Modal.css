@@ -64,6 +64,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    position: relative;
+    padding-top: 60%;
 }
 
 .modal-create-btn{
@@ -102,6 +104,7 @@
 }
 
 .tags-modal button{
+    cursor: pointer;
     align-self: flex-start;
     outline: none;
     border: none;
@@ -114,6 +117,7 @@
 .tag{
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .tags-display{
@@ -121,4 +125,21 @@
     padding: 10px;
     border-radius: 10px;
     width: auto;
+}
+
+.close-icon{
+    cursor: pointer;
+    color: #e8e9ea;
+}
+
+
+@media (max-width: 700px) {
+    .modal-container{
+        width: 100%;
+        max-width: 100%;
+        max-height: 80%;
+    }
+    .content{
+        width: 100%;
+    }
 }
