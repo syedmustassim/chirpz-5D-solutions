@@ -1,0 +1,40 @@
+.home-main{
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.home-content{
+    border: 1px solid #28395A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 150px;
+}
+
+.home-content h1{
+    width: 100%;
+    text-align: center;
+}
+
+.create-btn{
+    background-color: #E88607;
+    padding: 6px 19px 6px 19px;
+    color: white;
+    border-radius: 30px;
+    font-size: 22px;
+}
+
+.create-btn:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .home-main{
+        grid-template-columns: 0 100%;
+    }
+    .create-btn{
+        padding: 6px 12px;
+        font-size: 16px;
+    }
+}

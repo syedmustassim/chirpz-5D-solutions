@@ -1,7 +1,8 @@
+import "./Sidebar.css"
 const Sidebar = () => {
     return(
-        <div>
-            <h1>Sidebar</h1>
+        <div className="sidebar">
+            <img src="https://i.postimg.cc/nrSbZF4F/Chirpz-Logo.png" alt="logo" className="logo"/>
         </div>
     )
 }
