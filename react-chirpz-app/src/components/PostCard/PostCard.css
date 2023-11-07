@@ -1,0 +1,29 @@
+.post-card{
+    border: 1px solid #28395A;
+    padding: 10px;
+}
+
+.post-head{
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.post-caption{
+    padding-left: 20px;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.tags-container{
+    display: flex;
+    gap: 1rem;
+    margin-left: 20px;
+}
+
+.post-tags{
+    background-color: #28395A;
+    padding: 10px;
+    border-radius: 10px;
+}

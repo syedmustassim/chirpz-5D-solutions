@@ -1,9 +1,20 @@
-.home-main{
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
+.home-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.home-header-main{
+    width: 50%;
 }
 
 .home-content{
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(100px);
+    opacity: 100%;
     border: 1px solid #28395A;
     display: flex;
     justify-content: space-between;
