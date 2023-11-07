@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
+    "react-router-dom": "^6.18.0"
+  }
+}
